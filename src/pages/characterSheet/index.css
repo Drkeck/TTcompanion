@@ -1,0 +1,54 @@
+.window {
+  border: 3px solid #000;
+  border-radius: 12px;
+  background:radial-gradient(var(--backgroundColor) 60%, #000 200%);
+  margin: 2px;
+}
+
+.metasWindow {
+  padding: 1%;
+}
+
+.statsWindow {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0;
+}
+
+.statRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.statLabel {
+  width: 34px;
+}
+
+.statInputContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 160px;
+}
+
+.statTotal {
+  width: 35px;
+  border-radius: 10px;
+  background-color: rgba(65, 65, 65, 1);
+  padding: 0.6em 0.2em;
+  text-align: center; 
+}
+
+.statMod {
+  color: var(--textColor);
+  text-align: right;
+  width: 20px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

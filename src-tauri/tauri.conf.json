@@ -15,6 +15,14 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "fs": {
+        "scope": ["$DOCUMENT/ttcomp/*", "$DOCUMENT/*"],
+        "writeFile": true,
+        "readFile": true,
+        "createDir": true,
+        "readDir": true,
+        "removeFile": true
       }
     },
     "bundle": {

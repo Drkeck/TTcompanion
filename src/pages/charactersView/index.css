@@ -1,0 +1,26 @@
+.box {
+  border: 3px solid #000;
+  margin: 10px;
+  background:radial-gradient(var(--backgroundColor) 60%, #000 200%);
+}
+
+.box:hover {
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, .5);
+}
+
+.metasRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.character {
+  width: 100%
+}
+
+.delete {
+  padding: 5px 20px;
+}
+
+.addChar {
+  padding: 10px;
+}
