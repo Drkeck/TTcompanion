@@ -19,6 +19,7 @@ export interface CharStats {
 export interface CharMeta {
   name: string,
   level: number
+  baseAttackBonus: string
 }
 
 export interface characterObject {
@@ -47,16 +48,17 @@ function charReducer(state: characterObject, action: {type:updates, update: any}
     default:
       return {
         meta: {
-         name: '',
-         level: 1,
+          name: '',
+          level: 1,
+          class: ''
         },
         stats: {
-         Strength: 8,
-         Dexterity: 8,
-         Constitution: 8,
-         Intelligence: 8,
-         Wisdom: 8,
-         Charisma: 8
+          Strength: 8,
+          Dexterity: 8,
+          Constitution: 8,
+          Intelligence: 8,
+          Wisdom: 8,
+          Charisma: 8
         }
       }
   }
@@ -73,6 +75,7 @@ function useCharacterHook(): {
     meta: {
       name: '',
       level: 1,
+      class:''
     },
     stats: {
         Strength: 8,

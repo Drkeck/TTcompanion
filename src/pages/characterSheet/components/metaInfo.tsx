@@ -2,37 +2,47 @@ import React from "react";
 import { characterObject, updates } from "../../../hooks/useCharacterHook";
 
 function MetaInput({identifier, value, update}:{identifier: string, value: string | number, update: (name:string, value: string| number) => void}) {
+  const checker = (identifier === "level")
     return (
-    <>
-    {identifier === "level" ? <button
-      onClick={() => update(identifier, value)}
+    <div style={{display: 'flex', justifyContent: 'space-between', margin: '0 30px 0 0',}}>
+      <h2 style={{margin: 'auto 10px'}}>{identifier}:</h2>
+    {Number.isInteger(value) ? <button
+      onClick={() => {
+          if (value === 1) return
+          update(identifier, value - 1)}
+        }
       >-</button> : null}
     <input
-    type={identifier === "name" ? "text" : "number"}
-    value={!value ? undefined : value}
+    type={checker ? "number" : "text"}
+    value={!value ? '' : value}
     placeholder={identifier}
-    min={identifier === "level" ? 1 : undefined}
-    max={identifier === "level" ? 20 : undefined}
+    min={checker ? 1 : undefined}
+    max={checker ? 20 : undefined}
     onChange={(e) => {
-      console.log(e.target.value)
-      update(identifier, e.target.value)}
+          if (checker) return
+          update(identifier, `${e.target.value}`)
+    }
     }/>
-    {identifier === "level" ? <button
-      onClick={() => update(identifier, value)}
+    {Number.isInteger(value) ? <button
+      onClick={() => {
+          if (value === 20) return
+          update(identifier, value + 1)}
+        }
       >+</button> : null}
-    </>
+    </div>
   )
 }
 
 function MetaInfo({meta, update}: { meta: characterObject['meta'], update: (arg1:updates, arg2:any) => void }) {
   const entries = Object.entries(meta)
 
+  console.log(entries)
   function updateMeta(name: string, value: string | number) {
     update(updates.metaUpdate, {Name: name, value: value})
   }
 
   return(
-    <div>
+    <div style={{display: 'flex', justifyContent: 'space-between', width: '50%'}}>
       {entries.map(([key, value]) => (
         <MetaInput key={key} identifier={key} value={value} update={updateMeta}/>
       ))}

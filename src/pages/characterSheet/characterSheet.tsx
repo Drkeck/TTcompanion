@@ -14,12 +14,12 @@ function CharacterSheet({setTab, updateCharacter, characterObj}:{setTab:any, upd
 
   return (
     <div style={{margin: '2%'}}>
-      <div style={{display: 'flex', justifyContent: 'space-between'}} className="window metasWindow">
-        <MetaInfo meta={characterObj.meta} update={updateCharacter}/>
-        <div>
-         <button onClick={() => saveInput()}>save</button>
-         <button onClick={() => setTab()}>load</button>
-        </div>
+      <div style={{ display: 'flex', justifyContent: 'end'}}>
+       <button onClick={() => saveInput()}>Save</button>
+       <button onClick={() => setTab()}>X</button>
+      </div>
+      <div className="window metasWindow">
+       <MetaInfo meta={characterObj.meta} update={updateCharacter}/>
       </div>
       <StatsPanel stats={characterObj.stats} update={updateCharacter}/>
     </div>
