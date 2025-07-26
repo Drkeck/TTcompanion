@@ -1,0 +1,28 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "capabilities for main window",
+  "local": true,
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        {
+          "path": "$DOCUMENT/*"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [
+        {
+          "path": "$DOCUMENT/ttcomp/*"
+        }
+      ]
+    },
+    "fs:default"
+  ]
+}

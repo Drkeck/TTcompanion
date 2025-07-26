@@ -1,4 +1,4 @@
-import { writeTextFile, BaseDirectory, readTextFile, readDir, removeFile } from "@tauri-apps/api/fs";
+import { writeTextFile, BaseDirectory, readTextFile, readDir, remove } from "@tauri-apps/plugin-fs";
 import { sep } from "@tauri-apps/api/path";
 import { characterObject } from "./useCharacterHook";
 
@@ -6,24 +6,24 @@ import { characterObject } from "./useCharacterHook";
 function useFileSystem() {
  
   async function save(characterObject:characterObject) {
-    await writeTextFile(`ttcomp${sep}${characterObject.meta.name}.json`, JSON.stringify(characterObject), {dir: BaseDirectory.Document})
+    await writeTextFile(`ttcomp${sep}${characterObject.meta.name}.json`, JSON.stringify(characterObject), {baseDir: BaseDirectory.Document})
   }
 
   async function load(file: string | undefined) {
     if (!file) return
-    const contents = await readTextFile(`ttcomp${sep}${file}`, {dir: BaseDirectory.Document});
+    const contents = await readTextFile(`ttcomp${sep}${file}`, {baseDir: BaseDirectory.Document});
     const jsonContents = JSON.parse(contents)
     return jsonContents
   }
 
   async function readFiles() {
-    const entries = await readDir('ttcomp',{dir: BaseDirectory.Document})
+    const entries = await readDir('ttcomp',{baseDir: BaseDirectory.Document})
     return entries
   }
 
   async function deleteFile(file: string | undefined) {
     console.log(file)
-    await removeFile(`ttcomp${sep}${file}`, {dir: BaseDirectory.Document})
+    await remove(`ttcomp${sep}${file}`, {baseDir: BaseDirectory.Document})
   }
 
   return {

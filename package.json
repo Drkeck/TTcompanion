@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.5.2",
+    "@tauri-apps/plugin-cli": "^2.0.0",
+    "@tauri-apps/plugin-fs": "^2.4.1",
+    "@tauri-apps/plugin-shell": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.8",
+    "@tauri-apps/cli": "^2.7.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.18.0",

@@ -1,21 +1,21 @@
 import React, { useEffect } from "react"
 import useFileSystem from "../../hooks/filesystem"
-import { FileEntry } from "@tauri-apps/api/fs";
+import { DirEntry } from "@tauri-apps/plugin-fs";
 import './index.css'
 
 // ToDo: fetch files and display them for selection
 function CharactersView({load, newChar}: {load:(arg: string | undefined) => void, newChar: () => void}) {
   const {readFiles, deleteFile} = useFileSystem()
-  const [files, setFiles] = React.useState<FileEntry[]>()  
+  const [files, setFiles] = React.useState<DirEntry[]>()  
 
   async function fileRender() {
     const fetch = await readFiles(); 
     setFiles(fetch)
   }
 
-  async function deleteSelectedFile(file: FileEntry) {
+  async function deleteSelectedFile(file: DirEntry) {
       await deleteFile(file.name)
-      setFiles(prev => prev?.filter(stateFile => file.path != stateFile.path))
+      setFiles(prev => prev?.filter(stateFile => file.name != stateFile.name))
     
   }
 
