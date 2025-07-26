@@ -7,6 +7,18 @@
     "main"
   ],
   "permissions": [
-
+    "core:default",
+    "fs:default",
+    "fs:allow-read-dir",
+    "fs:allow-read",
+    "fs:allow-read-file",
+    "fs:allow-app-read",
+    "fs:allow-write-text-file",
+    "fs:allow-write-file",
+    "fs:allow-mkdir",
+    "fs:write-files",
+    "fs:scope-document",
+    "fs:allow-document-write",
+    "fs:allow-document-write-recursive"
   ]
 }
