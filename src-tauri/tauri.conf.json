@@ -1,62 +1,40 @@
 {
-  "productName": "TTcompanion",
-  "version": "0.0.1",
-  "identifier": "com.ttcompanion.example",
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "ttcompanion",
+  "version": "0.1.0",
+  "identifier": "com.tauri.dev",
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist",
     "devUrl": "http://localhost:1420",
-    "frontendDist": "../dist"
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
   },
   "app": {
-    "security": {
-      "csp": null,
-      "capabilities": [
-        {
-          "identifier": "migrated",
-          "description": "permissions that were migrated from v1",
-          "local": true,
-          "windows": [
-            "main"
-          ],
-          "permissions": [
-            "core:default",
-            "fs:allow-read-file",
-            "fs:allow-write-file",
-            "fs:allow-read-dir",
-            "fs:allow-mkdir",
-            "fs:allow-remove",
-            {
-              "identifier": "fs:scope",
-              "allow": [
-                {
-                  "path": "$DOCUMENT/ttcomp/*"
-                },
-                {
-                  "path": "$DOCUMENT/*"
-                }
-              ]
-            },
-            "shell:allow-open",
-            "fs:default",
-            "shell:default"
-          ]
-        }
-      ]
-    },
     "windows": [
       {
-        "fullscreen": false,
+        "title": "ttcompanion",
+        "width": 1280,
         "height": 720,
         "resizable": true,
-        "title": "Tauri App",
-        "width": 1280
+        "fullscreen": false
       }
     ],
-    "withGlobalTauri": true
+    "security": {
+      "csp": null
+    }
   },
-  "bundle": {},
-  "plugins": {
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+    "plugins": {
     "cli": {
       "description": "Tauri CLI Plugin Example",
       "args": [
