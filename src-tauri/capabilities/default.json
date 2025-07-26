@@ -7,22 +7,6 @@
     "main"
   ],
   "permissions": [
-    {
-      "identifier": "fs:allow-mkdir",
-      "allow": [
-        {
-          "path": "$DOCUMENT/*"
-        }
-      ]
-    },
-    {
-      "identifier": "fs:allow-write-text-file",
-      "allow": [
-        {
-          "path": "$DOCUMENT/ttcomp/*"
-        }
-      ]
-    },
-    "fs:default"
+
   ]
 }
