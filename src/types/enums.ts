@@ -4,3 +4,8 @@ export enum Updates {
   characterLoad,
   default
 }
+
+export enum Tabs {
+  CharacterSheet = "characterSheet",
+  CharactersView = "charactersView"
+}

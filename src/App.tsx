@@ -5,12 +5,9 @@ import CharactersView from "./pages/charactersView/charactersView";
 import useFileSystem from "./hooks/filesystem";
 import useCharacterHook from "./hooks/useCharacterHook";
 import { characterObject } from "./types/character";
-import { Updates } from "./types/enums";
+import { Updates, Tabs } from "./types/enums";
 
-enum Tabs {
-  CharacterSheet = "characterSheet",
-  CharactersView = "charactersView"
-}
+
 function Display({tab, load, setTab, updateCharacter, characterObj}:{tab:Tabs, load: (file: string | undefined) => Promise<void>, setTab:(tab: Tabs) => void, updateCharacter: (type: Updates, update: any) => void , characterObj: characterObject}) {
   
   function goBack() {
