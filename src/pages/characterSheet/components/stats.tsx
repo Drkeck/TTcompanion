@@ -1,10 +1,11 @@
 import React from "react"
-import { characterObject, updates } from "../../../hooks/useCharacterHook"
+import { Updates } from "../../../types/enums"
+import { characterObject } from "../../../types/character"
 
-function StatPoint({statName, statValue, update}: {statName: string, statValue: number, update:(type: updates.statUpdate, statUpdate: any) => void}) {
+function StatPoint({statName, statValue, update}: {statName: string, statValue: number, update:(type: Updates.statUpdate, statUpdate: any) => void}) {
  const title = statName.toLocaleUpperCase().slice(0,3)
   function updateStat(value:number) {
-   update(updates.statUpdate, {Name:statName, value:value})
+   update(Updates.statUpdate, {Name:statName, value:value})
   }
   
   return(
@@ -27,7 +28,7 @@ function StatPoint({statName, statValue, update}: {statName: string, statValue: 
 }
 
 
-function StatsPanel({stats, update}:{stats:characterObject["stats"], update:(type:updates.statUpdate ,statUpdate: any) => void}) {
+function StatsPanel({stats, update}:{stats:characterObject["stats"], update:(type:Updates.statUpdate ,statUpdate: any) => void}) {
   const statBreakdown = Object.entries(stats)
   return(
   <div className="window statsWindow">

@@ -1,49 +1,24 @@
 import React from "react";
+import { characterObject } from "../types/character";
+import { Updates } from "../types/enums";
 
-export enum updates {
-  statUpdate,
-  metaUpdate,
-  characterLoad,
-  default
-}
-
-export interface CharStats {
-  Strength: number,
-  Dexterity: number,
-  Constitution: number,
-  Intelligence: number,
-  Wisdom: number,
-  Charisma: number
-}
-
-export interface CharMeta {
-  name: string,
-  level: number
-  baseAttackBonus: string
-}
-
-export interface characterObject {
-  meta: CharMeta
-  stats: CharStats 
-}
-
-function charReducer(state: characterObject, action: {type:updates, update: any}) {
+function charReducer(state: characterObject, action: {type:Updates, update: any}) {
   switch(action.type) {
-    case updates.statUpdate:
+    case Updates.statUpdate:
       return {
         meta: state.meta,
         stats: {
           ...state.stats, [action.update.Name]: action.update.value
         }
       }
-    case updates.metaUpdate:
+    case Updates.metaUpdate:
       return {
         meta: {
           ...state.meta, [action.update.Name]: action.update.value
         },
         stats: state.stats
       }
-    case updates.characterLoad:
+    case Updates.characterLoad:
       return action.update
     default:
       return {
@@ -67,7 +42,7 @@ function charReducer(state: characterObject, action: {type:updates, update: any}
 // ToDo: update this to take more info and handle updates properly.
 function useCharacterHook(): {
   statefulData: {characterObj: characterObject},
-  updateCharacter: (type: updates, Update: any) => void
+  updateCharacter: (type: Updates, Update: any) => void
   loadCharacter: (characterLoad: characterObject) => void
 } {
 
@@ -88,12 +63,12 @@ function useCharacterHook(): {
     })
 
   // update this function
-  function updateCharacter(type: updates ,Update:string | number) {
+  function updateCharacter(type: Updates ,Update:string | number) {
     dispatcher({type: type, update: Update})
   }
 
   function loadCharacter(characterLoad: characterObject)  {
-    dispatcher({type: updates.characterLoad, update:characterLoad})
+    dispatcher({type: Updates.characterLoad, update:characterLoad})
   }
 
   return {

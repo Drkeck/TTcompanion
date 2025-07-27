@@ -1,6 +1,6 @@
 import { writeTextFile, BaseDirectory, readTextFile, readDir, remove } from "@tauri-apps/plugin-fs";
 import { sep } from "@tauri-apps/api/path";
-import { characterObject } from "./useCharacterHook";
+import { characterObject } from "../types/character";
 
 // ToDO: make this function better 
 function useFileSystem() {

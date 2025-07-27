@@ -1,5 +1,6 @@
 import React from "react";
-import { characterObject, updates } from "../../../hooks/useCharacterHook";
+import { Updates } from "../../../types/enums";
+import { characterObject } from "../../../types/character";
 
 function MetaInput({identifier, value, update}:{identifier: string, value: string | number, update: (name:string, value: string| number) => void}) {
   const checker = (identifier === "level")
@@ -33,12 +34,12 @@ function MetaInput({identifier, value, update}:{identifier: string, value: strin
   )
 }
 
-function MetaInfo({meta, update}: { meta: characterObject['meta'], update: (arg1:updates, arg2:any) => void }) {
+function MetaInfo({meta, update}: { meta: characterObject['meta'], update: (arg1:Updates, arg2:any) => void }) {
   const entries = Object.entries(meta)
 
   console.log(entries)
   function updateMeta(name: string, value: string | number) {
-    update(updates.metaUpdate, {Name: name, value: value})
+    update(Updates.metaUpdate, {Name: name, value: value})
   }
 
   return(

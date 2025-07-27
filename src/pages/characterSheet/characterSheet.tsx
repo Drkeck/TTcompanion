@@ -3,7 +3,7 @@ import StatsPanel from "./components/stats"
 import useFileSystem from "../../hooks/filesystem"
 import MetaInfo from "./components/metaInfo"
 import './index.css'
-import { characterObject } from "../../hooks/useCharacterHook"
+import { characterObject } from "../../types/character"
 
 function CharacterSheet({setTab, updateCharacter, characterObj}:{setTab:any, updateCharacter:any, characterObj: characterObject}) {
   const {save} = useFileSystem()
