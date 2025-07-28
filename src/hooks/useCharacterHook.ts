@@ -1,5 +1,5 @@
 import React from "react";
-import { characterObject } from "../types/character";
+import { characterObject, defaultCharacter } from "../types/character";
 import { Updates } from "../types/enums";
 
 function charReducer(state: characterObject, action: {type:Updates, update: any}) {
@@ -21,21 +21,7 @@ function charReducer(state: characterObject, action: {type:Updates, update: any}
     case Updates.characterLoad:
       return action.update
     default:
-      return {
-        meta: {
-          name: '',
-          level: 1,
-          class: ''
-        },
-        stats: {
-          Strength: 8,
-          Dexterity: 8,
-          Constitution: 8,
-          Intelligence: 8,
-          Wisdom: 8,
-          Charisma: 8
-        }
-      }
+      return defaultCharacter
   }
 }
 

@@ -7,13 +7,38 @@ export interface CharStats {
   Charisma: number
 }
 
+export enum BaseAttackBonus {
+  Full = 1,
+  Partial = 0.75,
+  Half = 0.5
+}
+
 export interface CharMeta {
   name: string,
   level: number
-  baseAttackBonus: string
+  class: string
+  baseAttackBonus: BaseAttackBonus
 }
+
 
 export interface characterObject {
   meta: CharMeta
-  stats: CharStats 
+  stats: CharStats
+}
+
+export const defaultCharacter:characterObject = {
+  meta: {
+    name: '',
+    level: 1,
+    class: '',
+    baseAttackBonus: BaseAttackBonus.Full
+  },
+  stats: {
+    Strength: 8,
+    Dexterity: 8,
+    Constitution: 8,
+    Intelligence: 8,
+    Wisdom: 8,
+    Charisma: 8
+  }
 }
